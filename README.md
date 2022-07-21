@@ -1,6 +1,6 @@
-# ESP-İDF Uart RC522_RFID Project
+# ESP-İDF UART RC522_RFID Project
 
-C library for interfacing ESP32 with MFRC522 RFID card reade and send card adress data with UART Protocol
+C library for interfacing ESP32 with RC522 RFID card reade and send card adress data with UART Protocol
 
 # How to use Project
 
