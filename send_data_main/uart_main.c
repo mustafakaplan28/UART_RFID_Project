@@ -41,9 +41,9 @@ void uart_cnfg(void){      // Uart Configure Function
 
 }
 
-uint8_t variable_adress[10];
+uint8_t variable_adress[5];
 
-int tag_handler(uint8_t* sn) { // serial number is always 5 bytes long
+void tag_handler(uint8_t* sn) { // serial number is always 5 bytes long
     
     int err_num = 0;
     uint8_t card_adress[5] = {0xf3,0x9c,0x92,0xa1,0x5c};
@@ -53,16 +53,13 @@ int tag_handler(uint8_t* sn) { // serial number is always 5 bytes long
             err_num ++;
         }
     }
-    return err_num; 
 }
 static void uart_task(void *arg)
 {   
-    uint8_t* sn;
     int len = 12 ;
-    
     while (1) {
 
-        if( tag_handler(&sn) == 0 ){
+        if( err_num == 0 ){
         uart_write_bytes(UART_PORT_NUM, 1, len);
         }
         else{
